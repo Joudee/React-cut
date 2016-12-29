@@ -1,6 +1,6 @@
 {
   "name": "react-cut",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Cutting images in React",
   "main": "lib/index.js",
   "scripts": {

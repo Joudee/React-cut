@@ -191,7 +191,7 @@ var Cutting = React.createClass({
     },
     cacheExternalImage:function(url){
         let img = new Image();
-        img.crossOrigin = "Anonymous";
+        //img.crossOrigin = "anonymous";
         img.src = url;
         return img
     },
@@ -208,13 +208,13 @@ var Cutting = React.createClass({
         ctx.drawImage(img,this.state.positionX,this.state.positionY,this.state.frameWidth,this.state.frameHeight,0,0,this.state.frameWidth,this.state.frameHeight);
         this.props.getCutImage(canvas.toDataURL("image/jpeg", 1.0),this.convertBase64UrlToBlob(canvas.toDataURL("image/jpeg", 1.0)));
     },
-    copyImageToFixSize:function(){
+    copyImageToFixSize:function(url){
         let Images = new Image(),
-            img = this.cacheExternalImage(this.props.config.url),
+            img = this.cacheExternalImage(url),
             that = this,
             canvas = this.refs.canvas,
             ctx=canvas.getContext('2d');
-            Images.src = this.props.config.url;
+            Images.src = url;
         Images.onload = function(){
             canvas.style.height = that.refs.bgImg.clientHeight+'px';
             canvas.style.width = that.refs.bgImg.clientWidth+'px';
@@ -224,7 +224,20 @@ var Cutting = React.createClass({
             that.setState({
                 realImage:canvas.toDataURL("image/jpeg", 1.0)
             })
+            that.initCut();
         }
+    },
+    initCut:function(){
+        let Images = new Image(),
+            img = this.cacheExternalImage(this.state.realImage),
+            that = this,
+            canvas = this.refs.canvas,
+            ctx=canvas.getContext('2d');
+        canvas.width = this.state.frameWidth;
+        canvas.height = this.state.frameHeight;
+        canvas.style.width = this.state.frameWidth + 'px';
+        canvas.style.height = this.state.frameHeight + 'px';
+        ctx.drawImage(img,this.state.positionX,this.state.positionY,this.state.frameWidth,this.state.frameHeight,0,0,this.state.frameWidth,this.state.frameHeight);
     },
     convertBase64UrlToBlob:function(dataURI){
         let byteString;
@@ -241,7 +254,12 @@ var Cutting = React.createClass({
         return new Blob([ia], {type:mimeString});
     },
     componentDidMount:function(){
-        this.copyImageToFixSize();
+        
+    },
+    componentWillReceiveProps:function(next){
+        if(next.config.url!=this.props.config.url){
+            this.copyImageToFixSize(next.config.url);
+        }
     },
     render: function () {
         return (

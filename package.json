@@ -1,0 +1,11 @@
+{
+  "name": "react-cut",
+  "version": "1.0.0",
+  "description": "Cutting images in React",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joudee",
+  "license": "ISC"
+}

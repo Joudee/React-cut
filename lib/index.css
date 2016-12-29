@@ -1,0 +1,88 @@
+.cutting{
+    width:100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.bg-img{
+    width:100%;
+    display: block;
+}
+
+.cutting .cover{
+    width:100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background: rgba(0,0,0,0.8);
+}
+
+.cover .frame{
+    width:100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    top:0;
+    left: 0;
+    z-index: 10;
+}
+
+.cover .frame img{
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: -1;
+}
+
+.cover .frame div{
+    width:100%;
+    height:100%;
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: 0;
+    border: 1px dashed rgba(255,255,255,0.8);
+}
+
+.cover .frame span{
+    width: 50px;
+    height:50px;
+    position: absolute;
+    z-index: 1;
+    border: 1px solid #fff;
+}
+
+.cover .frame span:nth-child(1){
+    top:0;
+    left: 0;
+}
+
+.cover .frame span:nth-child(2){
+    top:0;
+    right: 0;
+}
+
+.cover .frame span:nth-child(3){
+    bottom:0;
+    left: 0;
+}
+
+.cover .frame span:nth-child(4){
+    bottom:0;
+    right: 0;
+}
+
+.cutting .cutBt{
+    width:100%;
+    padding:12px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 10000;
+    background: #fb6823;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+}

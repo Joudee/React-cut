@@ -1,7 +1,8 @@
 # React-cut
 
 ##Intention
-JavaScript library for cutting images in React both width mobile and pc.It provides flexible operation on cutting.
+JavaScript library for cutting images in React both width mobile and pc.It provides flexible operation on cutting.(At present,it just support for mobild.I will promote it in version 1.0.1.)
+
 
 ##Installation
 

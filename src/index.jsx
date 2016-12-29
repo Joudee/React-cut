@@ -206,7 +206,7 @@ var Cutting = React.createClass({
         canvas.style.width = this.state.frameWidth + 'px';
         canvas.style.height = this.state.frameHeight + 'px';
         ctx.drawImage(img,this.state.positionX,this.state.positionY,this.state.frameWidth,this.state.frameHeight,0,0,this.state.frameWidth,this.state.frameHeight);
-        this.props.getCutImage(this.state.realImage,this.convertBase64UrlToBlob(this.state.realImage));
+        this.props.getCutImage(canvas.toDataURL("image/jpeg", 1.0),this.convertBase64UrlToBlob(canvas.toDataURL("image/jpeg", 1.0)));
     },
     copyImageToFixSize:function(){
         let Images = new Image(),

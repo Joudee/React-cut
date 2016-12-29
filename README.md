@@ -38,4 +38,4 @@ getCutImage:function(base64,file){
 },
 ```
 
-##[Example](http://www.joudee.com/reactCut/index.html)
+##[Example(http://www.joudee.com/reactCut/index.html)](http://www.joudee.com/reactCut/index.html)
